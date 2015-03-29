@@ -19,7 +19,7 @@ public class Main {
 
         // FIXME: Write the rest of this method!
 
-        // 1. Show the day of the week.
+        /*// 1. Show the day of the week.
         HashMap<Integer, String> dayOfWeekNames = DateTools.getDayOfWeekNames();
         // ...
 
@@ -29,18 +29,20 @@ public class Main {
 
         // 3. Show whether this is a national holiday, and if so, which.
         HashMap<Calendar, String> holidays = Holidays.getHolidays("National holiday");
-        // ...
+        // ... */
 
         // 4. Show whether this date is in DST.
-        boolean isDST = DST.isDST(date);
+        //boolean isDST = DST.isDST(date);
+
+        System.out.println(DST.isDST(date));
         // ...
 
-        // 5. Show the zodiac sign.
+       /* // 5. Show the zodiac sign.
         String zodiacSign = Zodiac.getZodiacSign(date);
         // ...
 
         // 6. Print out the monthly calendar.
-        CalendarPrinter.printMonthCalendar(date);
+        CalendarPrinter.printMonthCalendar(date); */
 
     }
 }
