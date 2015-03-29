@@ -21,6 +21,7 @@ public class Main {
 
         // 1. Show the day of the week.
         HashMap<Integer, String> dayOfWeekNames = DateTools.getDayOfWeekNames();
+
         // ...
 
         // 2. Show whether this is a work day.
