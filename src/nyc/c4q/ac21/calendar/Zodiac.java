@@ -1,6 +1,5 @@
 package nyc.c4q.ac21.calendar;
 
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ public class Zodiac {
      * @return
      *   A 'Calendar' object with that month and date set.  The year may be any value.
      */
+    @SuppressWarnings("deprecation")
     public static Calendar parseMonthAndDate(String string) {
         // We use an older API for parsing, which returns an old (deprecated) 'Date' object.
         SimpleDateFormat format = new SimpleDateFormat("MMMMM dd");
