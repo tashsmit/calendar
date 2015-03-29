@@ -18,15 +18,12 @@ public class DST {
      */
     public static void getDSTDates(HashMap<Integer, Calendar> startDates, HashMap<Integer, Calendar> endDates) {
         ArrayList<String> lines = FileTools.readLinesFromFile("dst.csv");
-        // FIXME: Write this method.
-        for (String line : lines) {
-            int comma = line.indexOf(',');
-            Calendar start = DateTools.parseDate(line.substring(0, comma));
-            Calendar end = DateTools.parseDate(line.substring(comma + 1));
-            int year = start.get(Calendar.YEAR);
-            startDates.put(year, start);
-            endDates.put(year, end);
-        }
+        // FIXME: Write this code!
+        // Each line in the file is of the form "start,end", where both dates
+        // are in the same year.  This represents the dates DST starts and
+        // ends in this year.
+        //
+        // Use DateTools.parseDate.
     }
 
     /**
@@ -43,11 +40,8 @@ public class DST {
         // Populate them.
         DST.getDSTDates(dstStartDates, dstEndDates);
 
-        // FIXME: Write this.
-        int year = date.get(Calendar.YEAR);
-        Calendar dstStart = dstStartDates.get(year);
-        Calendar dstEnd = dstEndDates.get(year);
-        return date.compareTo(dstStart) == 1 && date.compareTo(dstEnd) == -1;
+        // FIXME: Write this code!
+        return false;  // Change this!
     }
 
 }

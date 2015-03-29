@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // FIXME: Write this!
         Scanner scanner = new Scanner(System.in);
         System.out.print("date? ");
         String dateString = scanner.nextLine();
@@ -18,25 +17,30 @@ public class Main {
 
         System.out.println("date:              " + DateTools.formatDate(date));
 
-        int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
+        // FIXME: Write the rest of this method!
+
+        // 1. Show the day of the week.
         HashMap<Integer, String> dayOfWeekNames = DateTools.getDayOfWeekNames();
-        System.out.println("day of week:       " + dayOfWeekNames.get(dayOfWeek));
+        // ...
 
+        // 2. Show whether this is a work day.
         HashMap<Integer, Boolean> workDays = WorkDays.getWorkDays();
-        System.out.println("work day:          " + workDays.get(dayOfWeek));
+        // ...
 
+        // 3. Show whether this is a national holiday, and if so, which.
         HashMap<Calendar, String> holidays = Holidays.getHolidays("National holiday");
-        String holiday = holidays.get(date);
-        if (holiday == null)
-            holiday = "none";
-        System.out.println("national holiday:  " + holiday);
+        // ...
 
+        // 4. Show whether this date is in DST.
         boolean isDST = DST.isDST(date);
-        System.out.println("is DST:            " + isDST);
+        // ...
 
-        System.out.println("Zodiac sign:       " + Zodiac.getZodiacSign(date));
+        // 5. Show the zodiac sign.
+        String zodiacSign = Zodiac.getZodiacSign(date);
+        // ...
 
-        System.out.println();
+        // 6. Print out the monthly calendar.
         CalendarPrinter.printMonthCalendar(date);
+
     }
 }
