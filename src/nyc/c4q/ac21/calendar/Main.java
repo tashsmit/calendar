@@ -34,5 +34,8 @@ public class Main {
         System.out.println("is DST: " + isDST);
 
         System.out.println("Zodiac sign: " + Zodiac.getZodiacSign(date));
+
+        System.out.println();
+        CalendarPrinter.printMonthCalendar(date);
     }
 }
