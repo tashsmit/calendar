@@ -1,6 +1,10 @@
 # Calendar
 
-In this project, we'll write some code to work with dates, including days of the week and holidays.  You'll write a program that asks for a date and prints a number of important facts about the date.
+In this project, we'll write some code to work with dates, including days of the week and holidays.  
+
+You'll write a program that asks for a date and prints a summary for the date.  The summary will include the day of the week, whether this is a work day, whether it's a holiday (and if so which), whether Daylight Savings Time is in effect, and the zodiac sign for that date.  It will also print a mini calendar of the month containing that date.
+
+Your program should work for all dates between 1980 and 2020.
 
 
 ## Setup
@@ -39,18 +43,37 @@ July 2015
 
 ## Tasks
 
-Look for the `FIXME` comments in the code.  You'll have to do the following:
+We've provided the skeleton of the program for you, as well as some of the implementation to get you started.
 
-- Finish `DateTools.getDaysInYear`, which constructs a list of days in a year.  Use `getNextDay` to help you.
+Throughout the code, we use the [`Calendar`](http://docs.oracle.com/javase/7/docs/api/java/util/Calendar.html) class to represent dates.  Review the documentation for this class to remind yourself of how it works and what methods are available.
 
-- Write `DateTools.getDaysOfWeekNames`, which builds a hash map from codes for the day of the week to day of week names.  Use the codes from `java.util.Calendar`, such as `java.util.Calendar.MONDAY`.
+In several instances, we'll be loading data out of files.  We'll use files that contain the dates of major holidays, the start and end dates for Daylight Savings Time, and dates for zodiac signs.  We've provided these files for you, but you'll need to write code to interpet their contents.  The files are in CSV ([Comma-Separated Values](http://en.wikipedia.org/wiki/Comma-separated_values)) format: each line contains one entry, with multiple values separated by commas.
 
-- Write `WorkDays.getWorkDays`, which builds a hash map from codes for the day of teh week to whether it is a work day or not.
+The code has 8 methods that are missing their implementations, maked by "FIXME" in a comment.  Your team's job is to replace these FIXME's with the necessary code.  When you implement a method, read the method's documentation (the comment right above the method) carefully to understand what the method is supposed to do.
 
-- Write `Holidays.getHolidays`, which returns a hash map from holiday date to holiday name for holidays between 1980 and 2020.  This method uses holiday data stored in the file `holidays.csv`.  We've provided a method `FileTools.readLinesFromFile` that reads the contents of a file to an array list of lines.
+We've provided for you:
 
-- Write `DST.getDSTDates`.  This method parses a file containing the date on which Daylight Savings Time starts and ends each year, and fills these two dates into a pair of hash maps.  Note that this method does not create and return the hash maps.  (Can you guess why?)  Rather, the hash maps are passed in as arguments and this method adds keys and values to them.  This works because Java passes objects _by reference_.   
+- The class `DateTools`, which contains some useful methods for dealing with dates.
 
-- Write `DST.isDST` which takes a date and return true if the date falls during Daylight Savings Time.  
+  - `DateTools.formatDate` formats a date as a YYYY-MM-DD string. 
+
+  - `DateTools.parseDate` parses a date from a YYYY-MM-DD string.
+
+  - `DateTools.getNextDay` takes a `Calendar` and returns a new `Calendar` representing the following date.
+
+- The class `FileTools`, which contains a method `readLinesFromFile`.  We'll use this for a number of the other methods, to load lines of text from a text file.
+
+- A file [holidays.csv](src/holidays.csv) contains major holidays.  You'll have to interpret the contents of this file and select national holidays.
+
+- A file [dst.csv](src/dst.csv) contains start and end dates for Daylight Savings Time in the United States for each year.
+
+- A file [zodiac.csv](src/zodiac.csv) contains start and end dates for each zodiac period.
+
+- The class `Zodiac` contains a complete implementation of the zodiac sign computation.  You can use this as a reference when working on the other parts, as they share some (but not all) features.
+
+
+### Good luck!
+
+Don't hesitate to shout out to @alex or the TAs on Slack if you don't understand the project, or get stuck.
 
 

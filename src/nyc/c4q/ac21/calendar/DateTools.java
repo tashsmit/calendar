@@ -58,19 +58,6 @@ public class DateTools {
     }
 
     /**
-     * Builds and returns a list of all days in a year.
-     */
-    public static ArrayList<Calendar> getDaysInYear(int year) {
-        // FIXME: Write this.
-        ArrayList<Calendar> days = new ArrayList<Calendar>();
-        Calendar cal = Calendar.getInstance();
-        cal.set(year, Calendar.JANUARY, 1);
-        for (; cal.get(Calendar.YEAR) == year; cal = getNextDay(cal))
-            days.add(cal);
-        return days;
-    }
-
-    /**
      * Builds and returns a map from integers representing days of the week to the names of the days of the week.
      * @return
      *   A map with keys 'Calendar.MONDAY' through 'Calendar.SUNDAY' with corresponding day names as values.
@@ -89,6 +76,7 @@ public class DateTools {
     }
 
     public static HashMap<Integer, String> getMonthNames() {
+        // FIXME: Write this.
         HashMap<Integer, String> names = new HashMap<Integer, String>();
         names.put(Calendar.JANUARY, "January");
         names.put(Calendar.FEBRUARY, "February");
