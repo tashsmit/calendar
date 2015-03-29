@@ -13,6 +13,30 @@ In this project, we'll write some code to work with dates, including days of the
 
 1. Review the code to get a general understanding of the code that's already there. 
 
+
+## Output
+
+Your program will look like this:
+
+```
+date? 2015-07-04
+
+date:              2015-07-04
+day of week:       Saturday
+work day:          false
+national holiday:  Independence Day
+is DST:            true
+Zodiac sign:       Cancer
+
+July 2015
+             1   2   3   4*
+ 5   6   7   8   9  10  11 
+12  13  14  15  16  17  18 
+19  20  21  22  23  24  25 
+26  27  28  29  30  31  
+```
+
+
 ## Tasks
 
 Look for the `FIXME` comments in the code.  You'll have to do the following:
