@@ -25,4 +25,8 @@ Look for the `FIXME` comments in the code.  You'll have to do the following:
 
 - Write `Holidays.getHolidays`, which returns a hash map from holiday date to holiday name for holidays between 1980 and 2020.  This method uses holiday data stored in the file `holidays.csv`.  We've provided a method `FileTools.readLinesFromFile` that reads the contents of a file to an array list of lines.
 
-- 
+- Write `DST.getDSTDates`.  This method parses a file containing the date on which Daylight Savings Time starts and ends each year, and fills these two dates into a pair of hash maps.  Note that this method does not create and return the hash maps.  (Can you guess why?)  Rather, the hash maps are passed in as arguments and this method adds keys and values to them.  This works because Java passes objects _by reference_.   
+
+- Write `DST.isDST` which takes a date and return true if the date falls during Daylight Savings Time.  
+
+
