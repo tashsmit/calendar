@@ -35,6 +35,8 @@ public class DateTools {
                 if (year > 0 && year <= 9999
                         && month >= 1 && month <= 12
                         && dayOfMonth >= 1 && dayOfMonth <= 31) {
+                    // Allocate directly instead of using Calendar.getInstance() so that we don't
+                    // set the time fields and leave them initialized to zero.
                     return new GregorianCalendar(year, month - 1, dayOfMonth);
                 }
             } catch (NumberFormatException exception) {
