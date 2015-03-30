@@ -26,7 +26,7 @@ public class DateTools {
      * @return
      *   The date it represents, or null if the date is incorrectly formatted.
      */
-    public static Calendar parseDate(String date) {
+    public static Calendar parseDate(String date) { // -- makes sure input is in proper format
         if (date.length() == 10 && date.charAt(4) == '-' && date.charAt(7) == '-') {
             try {
                 int year = Integer.valueOf(date.substring(0, 4));
@@ -40,7 +40,7 @@ public class DateTools {
                     return new GregorianCalendar(year, month - 1, dayOfMonth);
                 }
             } catch (NumberFormatException exception) {
-                // Fall through.
+                // Fall through. -- b/c it is not in proper format
             }
         }
         // Didn't work.
@@ -64,13 +64,47 @@ public class DateTools {
      */
     public static HashMap<Integer, String> getDayOfWeekNames() {
         HashMap<Integer, String> names = new HashMap<Integer, String>();
+        names.put(Calendar.SUNDAY, "Sunday");
+        names.put(Calendar.MONDAY, "Monday");
+        names.put(Calendar.TUESDAY, "Tuesday");
+        names.put(Calendar.WEDNESDAY, "Wednesday");
+        names.put(Calendar.THURSDAY, "Thursday");
+        names.put(Calendar.FRIDAY, "Friday");
+        names.put(Calendar.SATURDAY, "Saturday");
+
         // FIXME: Write this.
         return names;
     }
 
+    /**
+     * Builds and returns a map from integers representing days of the month to the names of the days of the month.
+     * @return
+     * A map with keys 'Calendar.JANUARY' through 'Calendar.DECEMBER' with corresponding month names as values.
+     */
     public static HashMap<Integer, String> getMonthNames() {
+        HashMap<Integer, String> names = new HashMap<Integer, String>();
+        names.put(Calendar.JANUARY, "January");
+        names.put(Calendar.FEBRUARY, "February");
+        names.put(Calendar.MARCH, "March");
+        names.put(Calendar.APRIL, "April");
+        names.put(Calendar.MAY, "May");
+        names.put(Calendar.JUNE, "June");
+        names.put(Calendar.JULY, "July");
+        names.put(Calendar.AUGUST, "August");
+        names.put(Calendar.SEPTEMBER, "September");
+        names.put(Calendar.OCTOBER, "October");
+        names.put(Calendar.NOVEMBER, "November");
+        names.put(Calendar.DECEMBER, "December");
+
         // FIXME: Write this.
-        return null;  // Change this!
+        return names;  // Change this!
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getDayOfWeekNames());
+        System.out.println(getDayOfWeekNames().get(Calendar.SUNDAY));
+        System.out.println(getMonthNames());
+        System.out.println(getMonthNames().get(Calendar.JANUARY));
     }
 
 }
