@@ -23,8 +23,19 @@ public class Holidays {
 
         HashMap<Calendar, String> holidays = new HashMap<Calendar, String>();
         for (String line : lines) {
-            // FIXME: Write this.
-            // Use DateTools.parseDate.
+
+            // Separating data within each line.
+            int comma1 = line.indexOf(',');
+            String date = line.substring(0, comma1);
+            int comma2 = line.indexOf(',', comma1 + 1);
+            String name = line.substring(comma1 + 1, comma2);
+            String type = line.substring(comma2 + 1);
+
+            // Adding only the lines where type matches holidayType.
+            if (type.equals(holidayType)) {
+                holidays.put(DateTools.parseDate(date), name);
+            }
+
         }
         return holidays;
     }
