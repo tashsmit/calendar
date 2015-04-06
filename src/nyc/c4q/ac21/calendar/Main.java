@@ -69,7 +69,7 @@ public class Main
         System.out.println("Zodiac sign:       " + zodiacSign);
 
         // 6. Print out the monthly calendar.
-        //CalendarPrinter.printMonthCalendar(date);
+        CalendarPrinter.printMonthCalendar(date);
 
     }
 }

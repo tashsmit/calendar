@@ -1,6 +1,7 @@
 package nyc.c4q.ac21.calendar;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class CalendarPrinter
 {
@@ -25,12 +26,53 @@ public class CalendarPrinter
      *   The date containing the month to print.
      */
     public static void printMonthCalendar(Calendar date) {
-        // FIXME: Write this.
-        // Use these methods to help you:
-        //   DateTools.getMonthNames()
-        //   DateTools.getNextDay() to loop through days in the month.
+        //System.out.println(date);
+        System.out.println();
 
+        HashMap <Integer, String> month = DateTools.getMonthNames(); //contains names of months
+
+        int currentDay = date.get(Calendar.DAY_OF_MONTH);
+        int currentMonth = date.get(Calendar.MONTH);
+        int currentYear = date.get(Calendar.YEAR);
+
+        Calendar currentDayToPrint = Calendar.getInstance();
+        currentDayToPrint.set(currentYear,currentMonth,1);//will all the calendar to print starting the first day of the month
+
+
+        System.out.println(month.get(currentMonth) +  " " + currentYear); // Prints out current month and year
+
+        int spaces = currentDayToPrint.get(Calendar.DAY_OF_WEEK);
+
+        for(int i = 1; i < spaces; i++) { //will add spaces to first week line depending on what day the first day of the month starts on.
+            System.out.print("    ");
+        }
+
+        while (true) { //prints calendar
+            int day = currentDayToPrint.get(Calendar.DAY_OF_MONTH);
+
+            if(day < 10) {//will determine whether it needs to add an extra space to number for alignment.
+                System.out.print(" ");
+            }
+
+            if(day == currentDay) { //will print a star next to current day
+                System.out.print(" *");
+            } else {
+                System.out.print("  ");
+            }
+
+            System.out.print(day);
+
+            if(currentDayToPrint.get(Calendar.DAY_OF_WEEK) == 7) {
+                System.out.println();
+            }
+
+            Calendar nextDay = DateTools.getNextDay(currentDayToPrint);
+            int nextDayMonth = nextDay.get(Calendar.MONTH);
+            if(nextDayMonth != currentMonth) {// checks to see if new month has started
+                break;
+            }
+            currentDayToPrint = nextDay;
+        }
     }
-
 
 }
